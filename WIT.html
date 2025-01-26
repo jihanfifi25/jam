@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="icon" type="image/X-icon" href="Logo.png">
+</head>
+
+<body>
+
+    <div class="info">
+        <p> <b> Cakupan Wilayah WIT<br>
+                Waktu Indonesia Timur mencakup beberapa provinsi,<br> yaitu: </b>
+            <br>
+            <b>Kepulauan Maluku</b></br>
+            A. Maluku<br>
+            B. Maluku Utara</br>
+            <b>Pulau Papua</b></br>
+            A. Papua</br>
+            B. Papua Barat</br>
+            C. Papua Barat Daya</br>
+            D. Papua Pegunungan</br>
+            E. Papua Selatan</br>
+            F. Papua Tengah
+        </p>
+        <br>
+        <div class="fu">
+            <a href="WIB.html">WIB</a>
+       
+            <a href="WITA.html">WITA</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="clock">
+
+            <div class="circle" id="sc" style="--clr:#000000;"><i></i></div>
+            <div class="circle circle2" id="mn" style="--clr: #000000;"><i></i></div>
+            <div class="circle circle3" id="hr" style="--clr: #000000;"><i></i></div>
+
+            <span style="--i:1;"><b>1</b></span>
+            <span style="--i:2;"><b>2</b></span>
+            <span style="--i:3;"><b>3</b></span>
+            <span style="--i:4;"><b>4</b></span>
+            <span style="--i:5;"><b>5</b></span>
+            <span style="--i:6;"><b>6</b></span>
+            <span style="--i:7;"><b>7</b></span>
+            <span style="--i:8;"><b>8</b></span>
+            <span style="--i:9;"><b>9</b></span>
+            <span style="--i:10;"><b>10</b></span>
+            <span style="--i:11;"><b>11</b></span>
+            <span style="--i:12;"><b>12</b></span>
+        </div>
+
+        <div id="time">
+            <div id="hours" style="--clr:#ffffff;">00</div>
+            <div id="minutes" style="--clr:#ffffff;">00</div>
+            <div id="seconds" style="--clr:#ffffff;">00</div>
+            <div id="ampm">AM</div>
+        </div>
+    </div>
+
+    <script>
+        let hr = document.querySelector('#hr');
+        let mn = document.querySelector('#mn');
+        let sc = document.querySelector('#sc');
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 34;
+            let mm = day.getMinutes() * 6;
+            let ss = day.getSeconds() * 6;
+
+            /*masih bermasalah*/
+            hr.style.transform = `rotatez(${hh + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+
+            /*digital*/
+            let hours = document.getElementById('hours');
+            let minutes = document.getElementById('minutes');
+            let seconds = document.getElementById('seconds');
+            let ampn = document.getElementById('ampn');
+
+            let h = new Date().getHours() + 2;
+            let m = new Date().getMinutes();
+            let s = new Date().getSeconds();
+
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+        })
+
+
+    </script>
+
+</body>
+
+</html>
